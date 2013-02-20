@@ -1,3 +1,9 @@
-<div>
-  <%= @review.content if @review %>
+<div class="span3 well">
+  <h4>Latest reviews</h4>
+  <% @reviews.each do |review| %>
+      <%= link_to review_path review do %>
+        <%= image_tag review.album.cover.url(:thumb) if review.album %>
+      <% end %>
+    <%= link_to review.user.user_name, user_path(review.user) if review.user %>
+  <% end %>
 </div>

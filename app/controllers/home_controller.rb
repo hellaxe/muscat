@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @review = Review.last
+    @reviews = Review.order('created_at desc')
   end
 end

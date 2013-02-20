@@ -1,30 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @review.name %>
-</p>
-
-<p>
-  <b>Content:</b>
+<div class="span9 well">
+  <h3><%= @review.name %></h3>
+  <%= image_tag @review.album.cover.url(:medium) %>
   <%= @review.content %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @review.user_id %>
-</p>
-
-<p>
-  <b>Album:</b>
-  <%= @review.album_id %>
-</p>
-
-<p>
-  <b>Artist:</b>
-  <%= @review.artist_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+  <div class="well_footer">
+    <div class="review_rating">
+      Is this review useful?
+      <%= link_to '+', '#' %>
+      83
+      <%= link_to '-', '#' %>
+    </div>
+    <div class="review_author">
+      <%= @review.user.user_name %>
+    </div>
+  </div>
+</div>
