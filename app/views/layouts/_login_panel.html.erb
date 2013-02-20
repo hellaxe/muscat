@@ -1,0 +1,8 @@
+
+  <%= form_for("user", :url => user_session_path , html: { class: 'navbar-search pull-right'}) do |f|%>
+          <%= f.email_field :email, class: "input-small",
+                                    placeholder: 'Login' %>
+          <%= f.password_field :password, class: "input-small",
+                                    placeholder: 'Password' %>
+          <%= f.submit 'Login', class: 'btn btn-primary'%>
+  <% end %>
