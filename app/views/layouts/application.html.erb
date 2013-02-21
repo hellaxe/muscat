@@ -18,11 +18,11 @@
       <a class="brand" href="#">MusCat</a>
       <div class="container nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Home", "/"  %></li>
-          <li><%= link_to "News", "/"  %></li>
-          <li><%= link_to "Music", "/"  %></li>
+          <li><%= link_to 'Home', '/' %></li>
+          <li><%= link_to 'News', '/' %></li>
+          <li><%= link_to 'Music', '/' %></li>
         </ul>
-        <% if user_signed_in? %>
+        <% if guest_or_user_signed_in? %>
             <%= render 'layouts/logged_in' %>
         <% else %>
             <%= render 'layouts/login_panel' %>

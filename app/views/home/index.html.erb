@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "home", :media => "all" %>
-<% if user_signed_in? %>
+<% if guest_or_user_signed_in? %>
     <div class="row">
       <div class="span9 well">
         Other content
@@ -11,6 +11,6 @@
     <div id="signup_panel" class="span12 well">
       <h1>Welcome, guest!</h1>
       <%=  image_tag 'signup_1000.jpg' %>
-      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success' %> or <%= link_to 'Try Guest', '#', class: 'btn btn-info' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success' %> or <%= link_to 'Try Guest', 'guest_login', method: :post, class: 'btn btn-info' %>
     </div>
 <% end %>

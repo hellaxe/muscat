@@ -2,15 +2,16 @@
   <h3><%= @review.name %></h3>
   <%= image_tag @review.album.cover.url(:medium) %>
   <%= @review.content %>
-  <div class="well_footer">
-    <div class="review_rating">
+  <hr />
+  <div class="well_footer row">
+    <div class="review_rating span3">
       Is this review useful?
       <%= link_to '+', '#' %>
       83
       <%= link_to '-', '#' %>
     </div>
-    <div class="review_author">
-      <%= @review.user.user_name %>
+    <div class="review_author span3">
+      <%= link_to @review.user.user_name, user_path(@review.user) %>
     </div>
   </div>
 </div>

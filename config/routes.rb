@@ -1,4 +1,7 @@
 Muscat::Application.routes.draw do
+  resources :posts
+
+
   devise_for :users
 
   resources :users
@@ -20,6 +23,9 @@ Muscat::Application.routes.draw do
 
 
   get "home/index"
+
+  post "/guest_login" => 'home#guest_login'
+  delete '/guest_logout' => 'home#guest_logout'
 
   ActiveAdmin.routes(self)
 

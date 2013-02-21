@@ -11,4 +11,11 @@ ActiveAdmin.register Song do
     end
     f.buttons
   end
+
+  index do
+    column :name
+    column :artist
+    column :album
+    column :durability_in_time
+  end
 end

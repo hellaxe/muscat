@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>User name:</b>
-  <%= @user.user_name %>
-</p>
+  <div class="span9 well">
+    <h3><%= @user.user_name %></h3>
 
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if user_signed_in? && current_user.id == @user.id %>
+    <div class="span12 well">
+      <h3>Settings</h3>
+    </div>
+<% end %>

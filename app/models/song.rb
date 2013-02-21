@@ -3,4 +3,10 @@ class Song < ActiveRecord::Base
   belongs_to :album
   belongs_to :artist
   has_and_belongs_to_many :genres
+
+  validates :name, :artist_id, presence: true
+
+  def durability_in_time
+    "#{self.durability / 60}:#{self.durability - self.durability / 60 * 60}"
+  end
 end
