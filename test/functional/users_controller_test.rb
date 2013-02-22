@@ -3,6 +3,9 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    @user.save
+    sign_in users(:one)
+    ability = Ability.new(@user)
   end
 
   test "should get index" do

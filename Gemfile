@@ -19,12 +19,14 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'commands'
 gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem 'activeadmin'
 gem 'jquery-rails'
 gem 'meta_search'
 gem 'cocoon'
+gem 'cancan'
 gem 'paperclip'
 
 # To use ActiveModel has_secure_password

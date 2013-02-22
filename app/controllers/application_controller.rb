@@ -1,6 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def current_ability
+    if session[:guest_user_id]
+      user = User.find(session[:guest_user_id])
+    elsif user_signed_in?
+      user = current_user
+    end
+
+    @current_ability ||= Ability.new(user)
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: "You haven't permissions to this action"
+  end
+
   def guest_or_user_signed_in?
     user_signed_in? || !session[:guest_user_id].nil?
   end
@@ -22,7 +36,7 @@ class ApplicationController < ActionController::Base
     User.destroy(session[:guest_user_id])
     session[:guest_user_id] = nil
   end
-  
+
   # find guest_user object associated with the current session,
   # creating one as needed
   def guest_user
@@ -38,6 +52,11 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
+    guest_reviews = guest_user.reviews.all
+    guest_reviews.each do |review|
+      review.user_id = current_user.id
+      review.save
+    end
     # For example:
     # guest_comments = guest_user.comments.all
     # guest_comments.each do |comment|

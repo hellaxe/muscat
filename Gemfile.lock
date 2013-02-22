@@ -48,6 +48,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    cancan (1.6.9)
     cocaine (0.4.2)
     cocoon (1.1.2)
     coffee-rails (3.2.2)
@@ -57,6 +58,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    commands (0.2.1)
+      rails (>= 3.2.0)
     commonjs (0.2.6)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -171,8 +174,10 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  cancan
   cocoon
   coffee-rails (~> 3.2.1)
+  commands
   jquery-rails
   less-rails-bootstrap
   meta_search

@@ -1,11 +1,13 @@
-
+<% if can? :read, @user %>
   <div class="span9 well">
     <h3><%= @user.user_name %></h3>
 
   </div>
 
-<% if user_signed_in? && current_user.id == @user.id %>
+<% if guest_or_user_signed_in? && current_or_guest_user.id == @user.id %>
     <div class="span12 well">
       <h3>Settings</h3>
     </div>
+<% end %>
+
 <% end %>

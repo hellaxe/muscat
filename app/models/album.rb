@@ -7,5 +7,5 @@ class Album < ActiveRecord::Base
 
   has_attached_file :cover, styles: {medium: '350x350', small: '150x150', thumb: '64x64'}
 
-  validates :name, presence: true
+  validates :name, :artist_id, presence: true
 end

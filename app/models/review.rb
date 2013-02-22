@@ -4,5 +4,6 @@ class Review < ActiveRecord::Base
   belongs_to :album
   belongs_to :artist
 
-  validates :name, :content, :artist_id, presence: true
+  validates :name, :content, :artist_id, :user_id, presence: true
+  validates_presence_of :user
 end
