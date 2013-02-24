@@ -1,4 +1,8 @@
+load 'lib/album_belongs_to_artist.rb'
+
 class Review < ActiveRecord::Base
+  include AlbumBelongsToArtist
+
   attr_accessible :album_id, :artist_id, :content, :name, :user_id
   belongs_to :user
   belongs_to :album
@@ -6,4 +10,5 @@ class Review < ActiveRecord::Base
 
   validates :name, :content, :artist_id, :user_id, presence: true
   validates_presence_of :user
+  validate :album_belongs_to_artist
 end
