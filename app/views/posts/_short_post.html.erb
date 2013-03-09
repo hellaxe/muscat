@@ -1,0 +1,9 @@
+<div class="post_header">
+  <h2><%= link_to post.name, post_path(post) %></h2>
+</div>
+<div class="post_content">
+  <%= post.content %>
+</div>
+<div class="post_footer">
+  Author: <%= post.user.user_name %>
+</div>

@@ -1,0 +1,16 @@
+<table class="table table-stripped table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>Composition</th>
+    <th>Durability</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.name, song_path(song) %></td>
+        <td><%= song.durability_in_time %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

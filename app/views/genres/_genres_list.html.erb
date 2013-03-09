@@ -1,0 +1,5 @@
+<% recent_genres.each do |artist_genre| %>
+    <%= link_to genre_path(artist_genre.genre), class: 'label label-info', title: artist_genre.rating do %>
+        <% artist_genre.genre.name %><% end %>
+<% end %>
+<%= link_to "+", edit_multiple_artist_artist_genres_path(artist_id), method: :get,remote: true, class: 'label label-info', id: 'add_genres' %>

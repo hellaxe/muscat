@@ -1,0 +1,9 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: hell
+ * Date: 3/4/13
+ * Time: 2:23 AM
+ * To change this template use File | Settings | File Templates.
+ */
+$('#myModal').modal('hide');
+$('#genre_list').html('<%=j render 'genres/genres_list', recent_genres: @recent_genres, artist_id: params[:artist_id] %>')

@@ -1,0 +1,31 @@
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add genres</h3>
+  </div>
+  <%= form_for @rating,
+               url: update_multiple_artist_artist_genres_path(@artist),
+               html: {method: :put},
+               remote: true do |f| %>
+  <div class="modal-body">
+    <div class="artist_header">
+        <%= image_tag @artist.photo.url(:thumb) if @artist.photo %>
+        <%= link_to @artist.name, artist_path(@artist) %>
+    </div>
+    <hr />
+    <%= collection_select :user, :genre_ids, Genre.all, :id, :name, {}, {multiple: true} %>
+    <br />
+    Recommended: <div class="genre-list">
+    <% @genres.each do |genre| %>
+      <%= link_to genre_path(genre.genre), class: 'label label-info', title: genre.rating do %>
+        <%= genre.genre.name %>
+      <% end %>
+    <% end %> </div>
+    <br />
+  </div>
+
+  <div class="modal-footer">
+    <%= f.button 'Save changes', class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>

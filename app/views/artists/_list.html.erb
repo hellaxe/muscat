@@ -1,0 +1,14 @@
+<%= paginate artists %>
+<ul class="thumbnails">
+  <% artists.each do |artist| %>
+      <li class="span2" style="height: 172px;">
+        <div class="thumbnail">
+          <%= link_to artist_path(artist) do %>
+            <%= image_tag artist.photo.url(:small) if artist.photo.url(:small) %>
+            <%= artist.name %>
+          <% end %>
+        </div>
+      </li>
+  <% end %>
+</ul>
+<%= paginate artists %>
