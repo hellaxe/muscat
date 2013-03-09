@@ -11,4 +11,8 @@ class Review < ActiveRecord::Base
   validates :name, :content, :artist_id, :user_id, presence: true
   validates_presence_of :user
   validate :album_belongs_to_artist
+
+  # TODO: add rating
+
+  scope :latest, lambda { |count = 3| order("created_at desc").limit(count)}
 end

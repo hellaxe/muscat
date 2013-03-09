@@ -15,6 +15,7 @@ class Ability
         can :create, [Artist, Album, Genre, Post, Song, Review]
         can :update, Post, user_id: user.id
         can :update, User, id: user.id
+        can :update, [Album, Song]
         can :destroy, [Review, Post], user_id: user.id
       end
       # Common permissions

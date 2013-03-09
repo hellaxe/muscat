@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @reviews = Review.order('created_at desc')
+    @reviews = Review.latest
+    @posts = Post.latest
   end
 
   # Method POST

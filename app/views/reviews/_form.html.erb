@@ -1,20 +1,45 @@
-<%= semantic_form_for(@review) do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= form_for(@review, html: {class: 'form-horizontal well'}) do |f| %>
+    <fieldset>
+      <legend></legend>
+    </fieldset>
+    <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :name, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
     </div>
-  <% end %>
-<fieldset>
-    <%= f.input :name%>
-    <%= f.input :content %>
-    <%= f.input :artist_id, as: :select, collection: (Artist.all), prompt: true %>
-    <%= f.input :album_id, as: :select, collection: (Album.all), prompt: true %>
-    <%= f.button %>
-</fieldset>
+    <div class="control-group">
+      <%= f.label :content, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :content %>
+      </div>
+    </div>
+    <% #TODO: Escape artist name %>
+    <div class="control-group">
+      <%= f.label :artist_id, class: 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :artist_id, Artist.order(:name), :id, :name, prompt: true %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :album_id, class: 'control-label' %>
+      <div class="controls">
+        <%= f.grouped_collection_select :album_id, Artist.order(:name), :albums, :name, :id, :name, prompt: true %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Create", class: 'btn btn-primary' %>
+    </div>
 <% end %>

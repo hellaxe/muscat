@@ -11,8 +11,8 @@ class Song < ActiveRecord::Base
   validates :name, :durability, presence: true
   validates :durability, numericality: { only_integer: true }
   validates_associated :artist
-  validate :album_belongs_to_artist
-
+  #TODO: Make artist association
+  #TODO: Make nested resource route
   def durability_in_time
     time = Time.at(self.durability).utc
 

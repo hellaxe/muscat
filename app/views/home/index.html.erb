@@ -1,8 +1,10 @@
 <%= stylesheet_link_tag "home", :media => "all" %>
 <% if guest_or_user_signed_in? %>
     <div class="row">
-      <div class="span9 well">
-        Other content
+      <div class="span8 well">
+        <% @posts.each do |post| %>
+            <%= render 'posts/short_post', post: post %>
+        <% end %>
       </div>
       <%= render 'reviews/latest'%>
     </div>

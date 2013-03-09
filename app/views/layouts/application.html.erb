@@ -19,8 +19,8 @@
       <div class="container nav-collapse">
         <ul class="nav">
           <li><%= link_to 'Home', '/' %></li>
-          <li><%= link_to 'News', '/' %></li>
-          <li><%= link_to 'Music', '/' %></li>
+          <li><%= link_to 'Artists', artists_path %></li>
+          <li><%= link_to 'Genres', genres_path %></li>
         </ul>
         <% if guest_or_user_signed_in? %>
             <%= render 'layouts/logged_in' %>

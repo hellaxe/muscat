@@ -1,4 +1,10 @@
 Muscat::Application.routes.draw do
+  get "artist_genres/index"
+
+  get "artist_genres/edit"
+
+  #get "artist_genres/update"
+
   resources :posts
 
 
@@ -13,10 +19,22 @@ Muscat::Application.routes.draw do
   resources :songs
 
 
-  resources :albums
+  #resources :albums
 
 
-  resources :artists
+  resources :artists do
+    resources :albums
+    resources :artist_genres do
+      member do
+        get :edit
+        put :update
+      end
+      collection do
+        get :edit_multiple
+        put :update_multiple
+      end
+    end
+  end
 
 
   resources :genres

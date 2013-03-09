@@ -1,7 +1,18 @@
 <div class="span9 well">
-  <h3><%= @review.name %></h3>
-  <%= image_tag @review.album.cover.url(:medium) %>
-  <%= @review.content %>
+  <div class="page-header"><h3><%= @review.name %></h3></div>
+  <div class="media">
+    <div class="pull-left">
+      <% if @review.album %>
+        <%= image_tag @review.album.cover.url(:small) %>
+      <% else %>
+        <%= image_tag @review.artist.photo.url(:small) %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <%= @review.content %>
+    </div>
+  </div>
+
   <hr />
   <div class="well_footer row">
     <div class="review_rating span3">

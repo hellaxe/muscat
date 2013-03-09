@@ -13,21 +13,23 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'chosen-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'commands'
-gem 'therubyracer'
-gem 'less-rails-bootstrap'
 gem 'activeadmin'
-gem 'jquery-rails'
-gem 'meta_search'
-gem 'cocoon'
+gem 'activerecord-reputation-system'
 gem 'cancan'
+gem 'cocoon'
+gem 'commands'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'less-rails-bootstrap'
+gem 'meta_search'
 gem 'paperclip'
+gem 'therubyracer'
 
 
 group :test, :development do

@@ -1,20 +1,24 @@
 <div class="well">
   <h4><%= link_to @album.artist.name, artist_path(@album.artist )%> - <%= @album.name %> (1964)</h4>
-  <%= image_tag @album.cover.url(:medium) %>
-  <% if @album.songs %>
-      <table class="table table-stripped">
-          <tr>
-              <th>Composition</th>
-              <th>Durability</th>
-          </tr>
-          <tr>
-            <% @album.songs.each do |song| %>
-                <td><%= song.name %></td>
-                <td><%= song.durability_in_time %></td>
-            <% end %>
-          </tr>
-      </table>
+
+  <div class="media">
+    <div class="pull-left">
+      <%= image_tag @album.cover.url(:medium) %>
+    </div>
+    <div class="media-body">
+      Release date: <%= 2.week.ago %> (Beta)<br />
+      Songs count: <%= @album.songs_count %><br />
+      Album durability: <%= @album.songs_duration %><br/>
+
+    </div>
+  </div>
+  <div class="album_songs">
+  <% if @album.songs.count > 0 %>
+      <%= render 'songs/songs', songs: @album.songs %>
+  <% else %>
+    There is no songs yet!
   <% end %>
+  </div>
 </div>
 
 

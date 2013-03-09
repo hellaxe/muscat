@@ -17,5 +17,6 @@ ActiveAdmin.register Song do
     column :artist
     column :album
     column :durability_in_time
+    default_actions
   end
 end

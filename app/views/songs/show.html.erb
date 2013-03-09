@@ -1,15 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @song.name %>
-</p>
-
-<p>
-  <b>Durability:</b>
-  <%= @song.durability %>
-</p>
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+<div class="well">
+  <div class="page-header">
+    <%= "#{@song.artist.name} - #{@song.name} (#{@song.durability_in_time})" %>
+  </div>
+  <div class="song-body">
+    Composition from album: <%= link_to @song.album.name, artist_album_path(@song.artist, @song.album) %>
+    <br/>
+    Video from YouTube: (Beta)
+  </div>
+</div>

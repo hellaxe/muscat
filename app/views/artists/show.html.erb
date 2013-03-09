@@ -1,15 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @artist.name %>
-</p>
-
-<p>
-  <b>Description:</b>
+<div class="well span9">
+    <div class="media">
+      <%= image_tag @artist.photo.url(:medium), class: 'pull-left media-object' if @artist.photo %>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= @artist.name %>
+        </h4>
+        <strong>Country</strong>: USA (Beta)<br />
+        <strong>City</strong>: NY (Beta)<br />
+        <strong>Albums</strong>: <%= @artist.albums.count %><br />
+        <strong>Formed</strong>: <%= 2.years.ago %> (Beta)<br />
+        <strong>Disbanded</strong>: <%= 1.years.ago %> (Beta)<br />
+        <strong>Members</strong>: Group Members (Beta)
+      </div>
+    </div>
+  <br />
+  <div id="modal_placeholder"></div>
+  <div id="genre_list">
+    <%= render 'genres/genres_list', recent_genres: @recent_genres, artist_id: @artist.id %>
+  </div>
+  <br />
   <%= @artist.description %>
-</p>
+  <br/>
 
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+  <div class="page-header">
+    <div class="btn-group">
+      <%= link_to 'Albums', artist_albums_path(@artist), class: 'btn' %>
+      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to 'Add Album', new_artist_album_path(@artist)  %>
+        </li>
+      </ul>
+    </div>
+    <br/>
+  </div>
+  <ul class="thumbnails">
+    <% @recent_albums.each do |album| %>
+        <li class="span2" style="height: 172px;">
+          <div class="thumbnail">
+            <%= link_to artist_album_path(@artist, album) do %>
+                <%= image_tag album.cover.url(:small) if album.cover.url(:small) %>
+                <%= album.name %>
+            <% end %>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
