@@ -6,9 +6,9 @@
   </tr>
   </thead>
   <tbody>
-  <% songs.each do |song| %>
+  <% album.songs.each do |song| %>
       <tr>
-        <td><%= link_to song.name, song_path(song) %></td>
+        <td><%= link_to song.name, artist_album_song_path(album.artist, album, song) %></td>
         <td><%= song.durability_in_time %></td>
       </tr>
   <% end %>

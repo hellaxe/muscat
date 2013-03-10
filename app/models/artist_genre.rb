@@ -3,10 +3,12 @@ class ArtistGenre < ActiveRecord::Base
   belongs_to :genre
   belongs_to :artist
   has_reputation :rating, source: :user
-  # bug with scope TODO: fix it
-  scope :highest_rated, lambda {|n = 2| find_with_reputation(:rating, :all, order: 'rating desc', limit: n) }
 
-  #scope :user_rated, lambda {|current_user|}
+  # Bug with scope
+  # Fixed by changing scope to method (o_O):
+  def self.highest_rated(n = 4)
+    find_with_reputation(:rating, :all, order: 'rating desc', limit: n)
+  end
 
   def rating
     self.reputation_for(:rating)

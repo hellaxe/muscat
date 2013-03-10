@@ -5,6 +5,7 @@ class Artist < ActiveRecord::Base
   has_many :songs, dependent: :destroy
   has_many :artist_genres
   has_many :genres, through: :artist_genres
+  has_many :comments, as: :commentable
   has_attached_file :photo, styles: {medium: '300x300', small: '120x120#', thumb: '64x64#'}
 
   validates :name, :description, presence: true

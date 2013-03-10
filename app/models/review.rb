@@ -7,6 +7,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :album
   belongs_to :artist
+  has_many :comments, as: :commentable
 
   validates :name, :content, :artist_id, :user_id, presence: true
   validates_presence_of :user

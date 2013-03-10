@@ -7,6 +7,7 @@ class Song < ActiveRecord::Base
   belongs_to :album
   belongs_to :artist
   has_and_belongs_to_many :genres
+  has_many :comments, as: :commentable
 
   validates :name, :durability, presence: true
   validates :durability, numericality: { only_integer: true }

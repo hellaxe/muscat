@@ -44,7 +44,7 @@ File.open(File.join(seeds_path,'seeds/albums.txt'), 'r') {
 alb_names = alb_names.split(',')
 artists = []
 
-rand(40).times do
+250.times do
   a = Artist.new(name: art_names[rand(art_names.count - 1)],
                            description: "description#{rand} #{rand}",
                             )

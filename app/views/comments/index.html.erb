@@ -1,0 +1,11 @@
+<% title "Comments" %>
+<div id="comments">
+  <% for comment in @comments %>
+    <div class="comment">
+      <%= simple_format comment.content  %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @comments %>
+
+

@@ -1,3 +1,4 @@
+<%= title "#{@album.name} - #{@album.artist.name}" %>
 <div class="well">
   <h4><%= link_to @album.artist.name, artist_path(@album.artist )%> - <%= @album.name %> (1964)</h4>
 
@@ -14,10 +15,15 @@
   </div>
   <div class="album_songs">
   <% if @album.songs.count > 0 %>
-      <%= render 'songs/songs', songs: @album.songs %>
-  <% else %>
-    There is no songs yet!
+      <%= render 'songs/songs', album: @album %>
   <% end %>
+    <%= link_to edit_artist_album_path(@album.artist, @album), class: 'btn btn-info' do %>
+        <% if @album.songs.count > 0 %>
+            Edit Songs
+        <% else %>
+            Add Songs
+        <% end %>
+    <% end %>
   </div>
 </div>
 

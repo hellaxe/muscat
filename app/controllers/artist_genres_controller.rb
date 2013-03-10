@@ -2,12 +2,6 @@ class ArtistGenresController < ApplicationController
   def index
   end
 
-  #def edit
-  #  @artist = Artist.find(params[:artist_id])
-  #  @genres = @artist.artist_genres.find_with_reputation(:rating, :all, order: 'rating desc', limit: 4)
-  #  edit!
-  #end
-
   def update
     genres = params[:user][:genre_ids]
     genres.reject!(&:blank?) if genres
@@ -15,7 +9,7 @@ class ArtistGenresController < ApplicationController
       rating = ArtistGenre.find_or_create_by_artist_id_and_genre_id(params[:artist_id], id)
       rating.rate_up(current_or_guest_user)
     end
-    @recent_genres = Artist.find(params[:artist_id]).artist_genres.find_with_reputation(:rating, :all, order: 'rating desc', limit: 5)
+    @recent_genres = Artist.find(params[:artist_id]).artist_genres.highest_rated(5)
     respond_to do |format|
       format.js
     end
@@ -23,7 +17,7 @@ class ArtistGenresController < ApplicationController
 
   def edit_multiple
     @artist = Artist.find(params[:artist_id])
-    @genres = @artist.artist_genres.find_with_reputation(:rating, :all, order: 'rating desc', limit: 4)
+    @genres = @artist.artist_genres.highest_rated(4)
     @rating = Array.new
     @rating << ArtistGenre.new
     # TODO: make find user rated genres for current user scope

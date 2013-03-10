@@ -1,11 +1,10 @@
 Muscat::Application.routes.draw do
-  get "artist_genres/index"
 
-  get "artist_genres/edit"
 
-  #get "artist_genres/update"
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
 
   devise_for :users
@@ -13,17 +12,25 @@ Muscat::Application.routes.draw do
   resources :users
 
 
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
 
 
-  resources :songs
+  #resources :songs
 
 
   #resources :albums
 
 
   resources :artists do
-    resources :albums
+    resources :comments
+    resources :albums do
+      resources :comments
+      resources :songs do
+        resources :comments
+      end
+    end
     resources :artist_genres do
       member do
         get :edit
@@ -37,12 +44,14 @@ Muscat::Application.routes.draw do
   end
 
 
-  resources :genres
+  resources :genres do
+    resources :comments
+  end
 
 
-  get "home/index"
+  get 'home/index'
 
-  post "/guest_login" => 'home#guest_login'
+  post '/guest_login' => 'home#guest_login'
   delete '/guest_logout' => 'home#guest_logout'
 
   ActiveAdmin.routes(self)

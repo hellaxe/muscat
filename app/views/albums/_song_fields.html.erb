@@ -1,7 +1,8 @@
 <fieldset>
-    <%= f.text_field :name %>
-    <%= f.text_field :durability %>
+    <%= f.text_field :name, class: 'controls' %>
+    <%= f.text_field :durability, class: 'controls' %>
     <%= f.hidden_field :artist_id, value: params[:artist_id] %>
+    <%= f.hidden_field :album_id, value: params[:album_id] %>
     <%= f.hidden_field :_destroy %>
     <%= link_to 'remove', '#', class: 'remove_fields' %>
 </fieldset>

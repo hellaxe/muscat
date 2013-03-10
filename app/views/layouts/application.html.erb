@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Music Catalog</title>
+  <title><%= yield_or_default(:title, "Find Your Music")  %> - Music Catalog</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -36,6 +36,13 @@
 <div class="container">
     <%= render 'layouts/notices' %>
     <%= yield %>
+
+  <div id="footer" class="span12">
+    <hr />
+    <%= link_to 'MusCat', root_url %>
+    <br />
+    Made by hell <br/>
+  </div>
 </div>
 </body>
 </html>

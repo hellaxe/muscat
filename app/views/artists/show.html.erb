@@ -1,3 +1,4 @@
+<%= title @artist.name %>
 <div class="well span9">
     <div class="media">
       <%= image_tag @artist.photo.url(:medium), class: 'pull-left media-object' if @artist.photo %>
@@ -48,4 +49,6 @@
         </li>
     <% end %>
   </ul>
+  <hr/>
+  <%= render 'comments/comments', commentable: @artist %>
 </div>
