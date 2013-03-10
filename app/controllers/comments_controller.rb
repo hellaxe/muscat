@@ -14,6 +14,7 @@ class CommentsController < InheritedResources::Base
     @comment.user = current_or_guest_user
     create! { |format|
       format.html { redirect_to @commentable}
+      format.js
     }
   end
 
