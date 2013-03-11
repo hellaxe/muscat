@@ -1,6 +1,15 @@
 <% for comment in comments %>
-    <div class="comment">
-      <%= simple_format comment.content  %>
+    <div class="comment media">
+      <div class="pull-left">
+        <%= image_tag comment.user.avatar.url(:small) %><br/>
+        <%= comment.user.user_name %>
+      </div>
+      <div class="media-body">
+        <%= simple_format comment.content  %>
+      </div>
+    </div>
+    <div class="pull-right">
+      <p><%= comment.created_at.strftime("%H:%M %d.%m.%Y") %></p>
     </div>
     <hr/>
 <% end %>

@@ -4,4 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   scope :latest, lambda {|n = 10| order('created_at desc').limit(n)}
+  validates :content, presence: true
 end
+
+
