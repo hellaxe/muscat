@@ -9,12 +9,14 @@ MusCat is a simplest music catalog. Right now you can:
   - view related to genre artists
   - try guest account before signing up
 
-In nearest future i want to add:
+I have added:
+  - avatars for users
+  - pictures to posts
   - js to comments
+
+In the near future i want to add:
   - token fields for genres to artists
   - rating to reviews
-  - avatars to users
   - additional params to artists and albums
   - mb additional params to users
-  - pictures to posts
   - some minor fixes in the whole project
