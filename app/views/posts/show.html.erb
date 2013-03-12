@@ -1,7 +1,15 @@
 <%= title @post.name %>
 <div class="well">
   <h3><%= @post.name %></h3>
-  <p><%= @post.content %></p>
+  <div class="media post_content">
+    <div class="pull-left">
+      <%= image_tag(@post.photo.url(:medium)) if @post.photo? %>
+    </div>
+    <div class="media-body">
+      <%= @post.content %>
+
+    </div>
+  </div>
   <div class="well_footer">
     <%= link_to @post.user.user_name, user_path(@post.user) %>
   </div>

@@ -1,6 +1,7 @@
 <% if @comment.content == "" %>
     $('#comment_text_area').css({'background-color': '#ff5555'}).animate({'background-color': '#ffffff'}, 2000);
 <% else %>
-$('#comments_placeholder').html('<%=j render 'comments/latest', comments: @commentable.comments.latest %>');
-$('#comment_text_area').val('');
+    $('#comments_placeholder').html('<%=j render 'comments/latest', comments: @commentable.comments.latest %>');
+    $('#comment_text_area').val('');
+    $('#comments_count').html('<%= "All comments (#{@commentable.comments.count})" %>')
 <% end %>

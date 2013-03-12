@@ -1,23 +1,27 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, class: 'form-horizontal') do |f| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, class: 'control-label' %>
+    <div class="controls"><%= f.text_field :name %></div>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+  <div class="control-group">
+    <%= f.label :content, class: 'control-label' %><br />
+    <div class="controls"><%= f.text_area :content, cols: 5, rows: 10 %></div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo, class: 'control-label' %>
+    <div class="controls"><%= f.file_field :photo %></div>
   </div>
   <div class="actions">
     <%= f.submit %>

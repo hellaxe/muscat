@@ -17,3 +17,5 @@
 /.idea
 /public/system/albums
 /public/system/artists
+/public/system/posts
+/public/system/users

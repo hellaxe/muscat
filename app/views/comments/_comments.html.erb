@@ -11,5 +11,7 @@
   <div id="comments_placeholder">
     <%= render 'comments/latest', comments: commentable.comments.latest %>
   </div>
-  <%= link_to 'All comments', [commentable, Comment] %>
+  <%= link_to [commentable, Comment], id:'comments_count' do%>
+      <%= "All comments (#{commentable.comments.count})" %>
+  <% end %>
 </div>
