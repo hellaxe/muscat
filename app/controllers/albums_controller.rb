@@ -13,7 +13,8 @@ class AlbumsController < InheritedResources::Base
   end
   def create
     @album = @artist.albums.build(params[:album])
-    create! {artist_album_path(@artist, @album)}
+    create!
+    #TODO: if success then redirect to album, else to form
   end
   def update
     update! {artist_album_path(@artist, @album)}
