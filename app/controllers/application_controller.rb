@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: "You haven't permissions to this action"
   end
 
-  rescue_from ActiveRecord::RecordNotFound do
-    begin
-      redirect_to :back, alert: 'Page not found'
-    rescue ActionController::RedirectBackError
-      redirect_to root_path
-    end
-  end
+  #rescue_from ActiveRecord::RecordNotFound do
+  #  begin
+  #    redirect_to :back, alert: 'Page not found'
+  #  rescue ActionController::RedirectBackError
+  #    redirect_to root_path
+  #  end
+  #end
 
   def guest_or_user_signed_in?
     user_signed_in? || !session[:guest_user_id].nil?

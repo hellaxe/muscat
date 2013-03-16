@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+  $('.rating_changeable').each (index, elem) ->
+    $(elem).raty(scoreName: $(elem).data('name'))
+  $('.rating_readonly').each (index, elem)->
+    $(elem).raty({ score: parseInt($(elem).data('rating')), readOnly: true })
   $('#review_album_id').parent().hide()
   albums = $('#review_album_id').html()
   $('#review_artist_id').change ->

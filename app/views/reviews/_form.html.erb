@@ -37,6 +37,12 @@
         <%= f.grouped_collection_select :album_id, Artist.order(:name), :albums, :name, :id, :name, prompt: true %>
       </div>
     </div>
+    <div class="control-group">
+      <%=  f.label 'Rating', class: 'control-label' %>
+      <div class="controls">
+        <%= rating_changeable Review, :rating %>
+      </div>
+    </div>
     <div class="form-actions">
       <%= f.submit "Create", class: 'btn btn-primary' %>
     </div>

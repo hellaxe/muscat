@@ -13,14 +13,11 @@
       <%= @review.content %>
     </div>
   </div>
-
+    <%= @title %>
   <hr />
   <div class="well_footer row">
     <div class="review_rating span3">
-      Is this review useful?
-      <%= link_to '+', '#' %>
-      83
-      <%= link_to '-', '#' %>
+      <%= rating_readonly(@review.id, @review.rating) %>
     </div>
     <div class="review_author span3">
       <%= link_to @review.user.user_name, user_path(@review.user) %>

@@ -17,6 +17,9 @@
           <strong><%= link_to review.artist.name, artist_path(review.artist) %></strong><br/>
           <%= link_to review.album.name, artist_album_path(review.artist,review.album) if review.album %><br/>
           <%= link_to review.user.user_name, user_path(review.user)%>
+          <%= rating_readonly(review.id, review.rating) %>
+
+
         </td>
       </tr>
 
