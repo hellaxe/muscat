@@ -6,11 +6,11 @@
         <h4 class="media-heading">
           <%= @artist.name %>
         </h4>
-        <strong>Country</strong>: USA (Beta)<br />
-        <strong>City</strong>: NY (Beta)<br />
+        <strong>Country</strong>: <%= @artist.country %><br />
+        <strong>City</strong>: <%= @artist.city %><br />
         <strong>Albums</strong>: <%= @artist.albums.count %><br />
-        <strong>Formed</strong>: <%= 2.years.ago %> (Beta)<br />
-        <strong>Disbanded</strong>: <%= 1.years.ago %> (Beta)<br />
+        <strong>Formed</strong>: <%= @artist.formed_date %> <br />
+        <strong>Disbanded</strong>: <%= @artist.disbanded_date %> <br />
         <strong>Members</strong>: Group Members (Beta)
       </div>
     </div>

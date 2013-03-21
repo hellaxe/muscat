@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316110857) do
+ActiveRecord::Schema.define(:version => 20130318152452) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130316110857) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.date     "release_date"
   end
 
   add_index "albums", ["artist_id"], :name => "index_albums_on_artist_id"
@@ -84,6 +85,10 @@ ActiveRecord::Schema.define(:version => 20130316110857) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "country"
+    t.string   "city"
+    t.date     "formed_date"
+    t.date     "disbanded_date"
   end
 
   create_table "comments", :force => true do |t|

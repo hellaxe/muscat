@@ -7,7 +7,7 @@
       <%= image_tag @album.cover.url(:medium) %>
     </div>
     <div class="media-body">
-      Release date: <%= 2.week.ago %> (Beta)<br />
+      Release date: <%= @album.release_date %><br />
       Songs count: <%= @album.songs_count %><br />
       Album durability: <%= @album.songs_duration %><br/>
 

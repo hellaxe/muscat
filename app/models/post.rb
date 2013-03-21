@@ -9,4 +9,5 @@ class Post < ActiveRecord::Base
   validates_presence_of :user
 
   scope :latest, lambda { |count = 5| order('created_at desc').limit(count) }
+  scope :latest_with_paginate, lambda { |page_number, per = 10| order('created_at desc').page(page_number).per(per)}
 end

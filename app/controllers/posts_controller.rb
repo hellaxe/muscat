@@ -5,4 +5,8 @@ class PostsController < InheritedResources::Base
     @post.user_id = current_or_guest_user.id
     create!
   end
+  def index
+    @posts = Post.latest_with_paginate(params[:page])
+    index!
+  end
 end

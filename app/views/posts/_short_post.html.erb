@@ -9,6 +9,9 @@
     <%= post.content %>
 
   </div>
+  <div class="pull-left">
+    <%= link_to 'More', post_path(post), class: 'btn btn-small' %>
+  </div>
 </div>
 <div class="post_footer">
   Author: <%= post.user.user_name %>

@@ -1,5 +1,6 @@
 <div class="pull-right btn-group">
-  <button class="btn"><%= current_or_guest_user.user_name %></button>
+  <button class="btn"><%= image_tag current_or_guest_user.avatar.url(:thumb) %>&nbsp
+    <%= current_or_guest_user.user_name %></button>
   <button class="btn dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
   </button>

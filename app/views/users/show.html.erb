@@ -1,7 +1,16 @@
 <% if can? :read, @user %>
-  <div class="span9 well">
+    <div class="span9 well" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <h3><%= @user.user_name %></h3>
+    <div class='media'>
+      <div class='pull-left'>
+        <%= image_tag @user.avatar.url(:medium) %>
+      </div>
+      <div class="media-body">
+        Posts: <%= @user.posts.count %> <br />
+        Comments: <%= @user.comments.count %> <br />
 
+      </div>
+    </div>
   </div>
 
 <% if guest_or_user_signed_in? && current_or_guest_user.id == @user.id %>

@@ -25,6 +25,22 @@
     <%= f.label :photo, class: 'control-label' %>
       <div class="controls"><%= f.file_field :photo %></div>
   </div>
+    <div class="control-group">
+      <%= f.label :country, class: 'control-label' %>
+      <div class="controls"><%= f.text_field :country %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city, class: 'control-label' %>
+      <div class="controls"><%= f.text_field :city %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :formed_date, class: 'control-label' %>
+      <div class="controls"><%= f.date_select :formed_date, start_year: 1900, order: [:day, :month, :year] %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :disbanded_date, class: 'control-label' %>
+      <div class="controls"><%= f.date_select :disbanded_date, start_year: 1900, order: [:day, :month, :year] %></div>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

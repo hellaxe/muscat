@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :posts
-  has_many :comments, as: :commentable
+  has_many :comments
 
-  has_attached_file :avatar, styles: {medium: '200x200', small: '64x64#', thumb: '32x32#'},
+  has_attached_file :avatar, styles: {medium: '200x200', small: '64x64#', thumb: '16x16#'},
                     default_url: '/system/avatar_:style_missing.png'
 
   validates :user_name, presence: true, uniqueness: true

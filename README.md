@@ -14,9 +14,10 @@ I have added:
   - pictures to posts
   - js to comments
   - rating to reviews
+  - additional params to artists and albums
 
 In the near future i want to add:
   - token fields for genres to artists
-  - additional params to artists and albums
   - mb additional params to users
   - some minor fixes in the whole project
+  - datepicker to date (in albums, artists, etc.)

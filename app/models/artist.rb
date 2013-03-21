@@ -1,5 +1,6 @@
 class Artist < ActiveRecord::Base
-  attr_accessible :description, :name, :genre_ids, :photo
+  attr_accessible :description, :name, :genre_ids, :photo, :city, :country,
+                  :formed_date, :disbanded_date
   has_many :albums, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :songs, dependent: :destroy
