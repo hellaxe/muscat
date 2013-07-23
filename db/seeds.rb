@@ -44,7 +44,7 @@ File.open(File.join(seeds_path,'seeds/albums.txt'), 'r') {
 alb_names = alb_names.split(',')
 artists = []
 
-250.times do
+250.times do |time|
   a = Artist.new(name: art_names[rand(art_names.count - 1)],
                            description: "description#{rand} #{rand}",
                             )
@@ -57,6 +57,7 @@ artists = []
                            artist_id: a.id)
     al.cover = File.open(File.join(seeds_path, "seeds/albums/#{rand(141)}.jpg"))
     al.save
+    puts "#{time}: artist"
   end
 end
 genres.each do |g|
