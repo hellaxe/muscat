@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :user_name, :guest,
                   :avatar
 
-  has_many :reviews
-  has_many :posts
-  has_many :comments
+  has_many :reviews, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_attached_file :avatar, styles: {medium: '200x200', small: '64x64#', thumb: '16x16#'},
                     default_url: '/system/avatar_:style_missing.png'
